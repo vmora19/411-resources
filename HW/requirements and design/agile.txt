@@ -1,0 +1,23 @@
+Story 1: As a vanilla git power-user that has never seen GiggleGit before, I want to learn how it differs from base git 
+
+Story 2: As a team lead onboarding an experienced GiggleGit user, I want to be able to quickly get them working on our product repository:
+- Task: Develop a permissions systems for GiggleGit repositories that allows for those with proper permissions, such as repo owners,
+to give out varying levels of access to other GiggleGit users
+    - Ticket 1: Implement on-site auth system that determines a user's read/write permissions for a given repo
+        - Reasoning:
+    - Ticket 2: Allow users to set permission levels of other users for repos they have "admin" level (can set permisions of other users) access to 
+        - Reasoning:
+
+Story 3: As a new user to version control systems, I want to familiarize myself with version control systems and how to use GiggleGit
+- Task: Create user-friendly on-site documentation
+    - Ticket 1: Design/develop some sort of information display UI (tooltips/popups) to be used to highlight new, missing, or equivalent features
+        - Reasoning: Though GiggleGit is a new product, version control systems are not new at all. In order to grow and maintain 
+        usership it is important to enable users, both new and old to version control, to quickly acclimate to GiggleGit's 
+        unique implementation.
+    - Ticket 2: Implement a site tutorial (that popups on first usage, or when important functionality is added), this should employ the aforementioned UI
+        - Reasoning: In order to increase product accessibility, users should, or have the option to, know when major functionality
+        is added to GiggleGit. This will not only reduce confusion, but also lead to greater feedback solicitation for newer features.
+
+Not a user story: As a user I want to be able to authenticate on a new machine 
+- This is not a user story because even though it expresses functionality that a user would like to see in a product, its use of technical/functional terms like 
+"authenticate" go against the purpose of user stories which are meant to be written in plain language.

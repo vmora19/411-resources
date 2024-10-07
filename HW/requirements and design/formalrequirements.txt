@@ -1,0 +1,12 @@
+Goal: Extend the vanilla interface with the current understanding of "sync with a snicker".
+Non-Goal: Solicit feedback.
+
+Non-functional requirement 1: Security
+- Functional requirements:
+    - Use 2FA authentication to login when given valid GiggleGit (or other git based service) credentials
+    - Abstract sync information to prevent leaking possibly private information
+
+Non-functional requirement 2: Repeatability
+- Functional requirements:
+    - SnickerSync should be available for use multiple times a day
+    - Syncs and snickers should have some capacity for differentiation
