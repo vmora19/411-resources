@@ -1,12 +1,6 @@
 Story 1: As a vanilla git power-user that has never seen GiggleGit before, I want to learn how it differs from base git 
 
-Story 2: As a team lead onboarding an experienced GiggleGit user, I want to be able to quickly get them working on our product repository:
-- Task: Develop a permissions systems for GiggleGit repositories that allows for those with proper permissions, such as repo owners,
-to give out varying levels of access to other GiggleGit users
-    - Ticket 1: Implement on-site auth system that determines a user's read/write permissions for a given repo
-        - Reasoning:
-    - Ticket 2: Allow users to set permission levels of other users for repos they have "admin" level (can set permisions of other users) access to 
-        - Reasoning:
+Story 2: As a team lead onboarding an experienced GiggleGit user, I want to be able to quickly get them working on our product repository
 
 Story 3: As a new user to version control systems, I want to familiarize myself with version control systems and how to use GiggleGit
 - Task: Create user-friendly on-site documentation
