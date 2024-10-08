@@ -1,5 +1,5 @@
 Goal: Extend the vanilla interface with the current understanding of "sync with a snicker".
-Non-Goal: Solicit feedback through user tests.
+Non-Goal: Solicit feedback through user studies.
 
 Non-functional requirement 1: Security
 - Functional requirements:

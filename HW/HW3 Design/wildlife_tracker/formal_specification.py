@@ -20,7 +20,7 @@ migrations: dict[int, Migration] = {} | migration manager
 path_id: int | path
 paths: dict[int, MigrationPath] = {} | migration manager
 size: int | habitat
-species: str | migration
+species: str | animal
 species: str | path
 start_date: str | migration
 start_location: Habitat | path
