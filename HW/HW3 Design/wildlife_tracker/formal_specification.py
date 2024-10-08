@@ -1,30 +1,30 @@
 from typing import Any, List, Optional
 
 
-age: Optional[int] = None | animal
-animal_id: int | animal
-animals: dict[int, Animal] = {} | AnimalManager
-animals: List[int] = [] | habitat
-current_date: str | path
-current_location: str | migration
-destination: Habitat | path
-duration: Optional[int] = None | path
-environment_type: str | habitat
-geographic_area: str | habitat
-habitat_id: int | habitat
-habitats: dict[int, Habitat] = {} | habitat
+age: Optional[int] = None
+animal_id: int
+animals: dict[int, Animal] = {}
+animals: List[int] = [] 
+current_date: str 
+current_location: str 
+destination: Habitat 
+duration: Optional[int] = None 
+environment_type: str 
+geographic_area: str 
+habitat_id: int 
+habitats: dict[int, Habitat] = {}
 health_status: Optional[str] = None
-migration_id: int | migration
-migration_path: MigrationPath
-migrations: dict[int, Migration] = {} | migration manager
-path_id: int | path
-paths: dict[int, MigrationPath] = {} | migration manager
-size: int | habitat
-species: str | animal
-species: str | path
-start_date: str | migration
-start_location: Habitat | path
-status: str = "Scheduled" | migration
+migration_id: int 
+migration_path
+migrations: dict[int, Migration] = {} 
+path_id: int 
+paths: dict[int, MigrationPath] = {} 
+size: int 
+species: str 
+species: str 
+start_date: str 
+start_location: Habitat 
+status: str = "Scheduled" 
 
 
 def assign_animals_to_habitat(animals: List[Animal]) -> None:
