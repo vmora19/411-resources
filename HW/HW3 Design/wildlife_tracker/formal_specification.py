@@ -4,8 +4,8 @@ from typing import Any, List, Optional
 age: Optional[int] = None | animal
 animal_id: int | animal
 animals: dict[int, Animal] = {} | AnimalManager
-animals: List[int] = []
-current_date: str 
+animals: List[int] = [] | habitat
+current_date: str | path
 current_location: str | migration
 destination: Habitat | path
 duration: Optional[int] = None | path
@@ -20,7 +20,7 @@ migrations: dict[int, Migration] = {} | migration manager
 path_id: int | path
 paths: dict[int, MigrationPath] = {} | migration manager
 size: int | habitat
-species: str
+species: str | migration
 species: str | path
 start_date: str | migration
 start_location: Habitat | path

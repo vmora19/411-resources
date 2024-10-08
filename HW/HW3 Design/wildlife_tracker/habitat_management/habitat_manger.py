@@ -1,9 +1,12 @@
 from typing import Optional, List
 
+from wildlife_tracker.animal_management.animal import Animal
+from wildlife_tracker.habitat_management.habitat import Habitat
+
 class HabitatManager:
 
     def __init__(self) -> None:
-        habitats: dict[int, Habitat] = {}
+        self.habitats: dict[int, Habitat] = {}
 
     def create_habitat(self, habitat_id: int, 
                     geographic_area: str, 
@@ -11,26 +14,29 @@ class HabitatManager:
                     environment_type: str) -> Habitat:
         pass
 
-    def remove_habitat(self, habitat_id: int) -> None:
+    def remove_habitat(habitat_id: int) -> None:
         pass
 
-    def get_habitat_by_id(self, habitat_id: int) -> Habitat:
+    def get_animals_in_habitat(habitat_id: int) -> List[Animal]:
         pass
 
-    def get_habitat_details(self, habitat_id: int) -> dict:
+    def get_habitat_by_id(habitat_id: int) -> Habitat:
         pass
 
-    def get_habitats_by_geographic_area(self, geographic_area: str) -> List[Habitat]:
+    def get_habitat_details(habitat_id: int) -> dict:
         pass
 
-    def get_habitats_by_size(self, size: int) -> List[Habitat]:
+    def get_habitats_by_geographic_area(geographic_area: str) -> List[Habitat]:
         pass
 
-    def get_habitats_by_type(self, environment_type: str) -> List[Habitat]:
+    def get_habitats_by_size(size: int) -> List[Habitat]:
         pass
 
-    def update_habitat_details(self, habitat_id: int, **kwargs: dict[str, Any]) -> None:
+    def get_habitats_by_type(environment_type: str) -> List[Habitat]:
         pass
 
-    def assign_animals_to_habitat(self, habitat_id: int, animals: List[Animal]) -> None:
+    def update_habitat_details(habitat_id: int, **kwargs: dict[str, Any]) -> None:
+        pass
+
+    def assign_animals_to_habitat(habitat_id: int, animals: List[Animal]) -> None:
         pass

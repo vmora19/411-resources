@@ -1,5 +1,7 @@
 from typing import Any, List, Optional
 
+from wildlife_tracker.animal_management.animal import Animal
+
 class Habitat:
 
     def __init__(self,
@@ -19,14 +21,14 @@ class Habitat:
         #   self.animals = []
         self.animals = animals or []
 
-def update_habitat_details(self, **kwargs: dict[str: Any]) -> None:
+def update_habitat_details(**kwargs: dict[str: Any]) -> None:
     pass
 
-def assign_animals_to_habitat(self, animals: List[Animal]) -> None:
+def assign_animals_to_habitat(animals: List[Animal]) -> None:
     pass
 
-def get_animals_in_habitat(self) -> List[Animal]:
+def get_animals_in_habitat() -> List[Animal]:
     pass
 
-def get_habitat_details(self) -> dict:
+def get_habitat_details() -> dict:
     pass
