@@ -27,6 +27,20 @@ class Meal:
 
 
 def create_meal(meal: str, cuisine: str, price: float, difficulty: str) -> None:
+    """
+    Creates a new meal in the meals table.
+
+    Args:
+        meal (str): The name of the meal.
+        cuisine (str): The type of cuisine the meal comes from.
+        price (float): The cost of the meal.
+        difficulty (str): The difficulty of creating this meal.
+
+    Raises:
+        ValueError: If price or difficulty are invalid.
+        sqlite3.IntegrityError: If a meal with the same name (meal) already exists.
+        sqlite3.Error: For any other database errors.
+    """
     if not isinstance(price, (int, float)) or price <= 0:
         raise ValueError(f"Invalid price: {price}. Price must be a positive number.")
     if difficulty not in ['LOW', 'MED', 'HIGH']:
@@ -53,6 +67,16 @@ def create_meal(meal: str, cuisine: str, price: float, difficulty: str) -> None:
 
 
 def delete_meal(meal_id: int) -> None:
+    """
+    Soft deletes a meal from the meals table by marking it as deleted.
+
+    Args:
+        meal_id (int): The ID of the meal to delete.
+
+    Raises:
+        ValueError: If the meal with the given ID does not exist or is already marked as deleted.
+        sqlite3.Error: If any database error occurs.
+    """
     try:
         with get_db_connection() as conn:
             cursor = conn.cursor()
@@ -76,6 +100,24 @@ def delete_meal(meal_id: int) -> None:
         raise e
 
 def get_leaderboard(sort_by: str="wins") -> dict[str, Any]:
+    """
+    Retrieves all meals that are not marked as deleted from the catalog and have been in at least 1 battle.
+
+    Args:
+        sort_by (str): 
+            If sort_by = "wins", sort the meals by their raw number of wins in descending order.
+            If sort_by = "win_pct", sort the meals by their win percentage in descending order.
+
+    Returns:
+        dict[str, Any]: A dictionary representing all of non-deleted meals that have battled appended by order of wins or win_pct.
+
+    Raises:
+        ValueError: If the argument to sort_by is invalid (anything other than "wins" and "wins_pct").
+        sqlite3.Error: If any other databse error occurs.
+
+    Logs:
+        Warning: If the catalog is empty.
+    """
     query = """
         SELECT id, meal, cuisine, price, difficulty, battles, wins, (wins * 1.0 / battles) AS win_pct
         FROM meals WHERE deleted = false AND battles > 0
@@ -117,6 +159,19 @@ def get_leaderboard(sort_by: str="wins") -> dict[str, Any]:
         raise e
 
 def get_meal_by_id(meal_id: int) -> Meal:
+    """
+    Retrieves a meal from the meals table by its meal ID.
+
+    Args:
+        meal_id (int): The ID of the meal to retrieve.
+
+    Returns:
+        Meal: The Song object corresponding to the song_id.
+
+    Raises:
+        ValueError: If the meal is not found or is marked as deleted.
+        sqlite3.Error: For any other database errors.
+    """
     try:
         with get_db_connection() as conn:
             cursor = conn.cursor()
@@ -138,6 +193,19 @@ def get_meal_by_id(meal_id: int) -> Meal:
 
 
 def get_meal_by_name(meal_name: str) -> Meal:
+    """
+    Retrieves a meal from the meals table by its name.
+
+    Args:
+        meal_name (str): The name of the meal to retrieve.
+
+    Returns:
+        Meal: The Song object corresponding to the song_id.
+
+    Raises:
+        ValueError: If the meal of a given meal name is not found or is marked as deleted.
+        sqlite3.Error: For any other database errors.
+    """
     try:
         with get_db_connection() as conn:
             cursor = conn.cursor()
@@ -159,6 +227,18 @@ def get_meal_by_name(meal_name: str) -> Meal:
 
 
 def update_meal_stats(meal_id: int, result: str) -> None:
+    """
+    Updates the stats of a non-deleted meal depending on the results of a battle.
+
+    Args:
+        meal_id (int): The ID of the meal to retrieve.
+        result (str): A string representing the result of a battle.
+
+    Raises:
+        ValueError: If the meal is not found or is marked as deleted.
+        ValueError: If the argument to result is invalid (not "win" or "loss").
+        sqlite3.Error: For any other database errors.
+    """
     try:
         with get_db_connection() as conn:
             cursor = conn.cursor()
